@@ -1,6 +1,6 @@
 public class RemoveDuplicates {
     public static void main(String[] args){
-        int[] arr = new int[] {1, 1, 1, 1, 1, 2, 3, 4, 4, 4, 5, 6, 7, 7, 7};
+        int[] arr = new int[] {1, 2, 3, 4, 5, 5, 6, 7, 7, 7, 7, 8};
         int new_size = rmDuplicates(arr);
         System.out.println("New Arr size: " + new_size);
         for (int i = 0; i < new_size; ++i)
@@ -21,10 +21,11 @@ public class RemoveDuplicates {
             {
                 if (i > 0 && arr[i] != arr[i-1])
                 {
-                    if (arr[new_size+1] != arr[i])
+                    if (++new_size < arr.length && arr[new_size--] != arr[i])
                     {
                         arr[new_size++] = arr[i];
                     }
+
                 }
             }
             return new_size;
