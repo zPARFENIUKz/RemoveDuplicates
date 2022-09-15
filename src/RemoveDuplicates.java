@@ -17,12 +17,14 @@ public class RemoveDuplicates {
         else
         {
             int new_size = 1;
-            for (int i = 0, j = 1; i < arr.length; ++i)
+            for (int i = 0; i < arr.length; ++i)
             {
                 if (i > 0 && arr[i] != arr[i-1])
                 {
-                    ++new_size;
-                    arr[j++] = arr[i];
+                    if (arr[new_size+1] != arr[i])
+                    {
+                        arr[new_size++] = arr[i];
+                    }
                 }
             }
             return new_size;
